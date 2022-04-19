@@ -1,0 +1,431 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v1.6.16",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_draco_mesh_compression"
+  ],
+  "extensionsRequired": [
+    "KHR_draco_mesh_compression"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "car.body",
+      "rotation": [
+        0,
+        0.9999971985816956,
+        0,
+        0.002362889004871249
+      ],
+      "scale": [
+        0.18820619583129883,
+        0.18820619583129883,
+        0.18820619583129883
+      ],
+      "translation": [
+        0,
+        0.0066399481147527695,
+        0
+      ]
+    },
+    {
+      "children": [
+        0
+      ],
+      "name": "* car_body",
+      "scale": [
+        0.6700000166893005,
+        0.6700000166893005,
+        0.6700000166893005
+      ]
+    },
+    {
+      "mesh": 1,
+      "name": "car.wheel_bl",
+      "rotation": [
+        0.7071068286895752,
+        0,
+        0,
+        0.7071068286895752
+      ],
+      "scale": [
+        0.10452922433614731,
+        0.10452922433614731,
+        0.10452922433614731
+      ],
+      "translation": [
+        -0.39839062094688416,
+        0.10426077991724014,
+        -0.27362731099128723
+      ]
+    },
+    {
+      "mesh": 1,
+      "name": "car.wheel_br",
+      "rotation": [
+        0,
+        -0.7071068286895752,
+        0.7071068286895752,
+        5.338508302088485e-8
+      ],
+      "scale": [
+        0.10452922433614731,
+        0.10452922433614731,
+        0.10452922433614731
+      ],
+      "translation": [
+        -0.3983891010284424,
+        0.10426077991724014,
+        0.28528034687042236
+      ]
+    },
+    {
+      "mesh": 1,
+      "name": "car.wheel_tl",
+      "rotation": [
+        0.7071068286895752,
+        0,
+        0,
+        0.7071068286895752
+      ],
+      "scale": [
+        0.10452922433614731,
+        0.10452922433614731,
+        0.10452922433614731
+      ],
+      "translation": [
+        0.3991802930831909,
+        0.10426077991724014,
+        -0.254343181848526
+      ]
+    },
+    {
+      "mesh": 1,
+      "name": "car.wheel_tr",
+      "rotation": [
+        0,
+        -0.7071068286895752,
+        0.7071068286895752,
+        5.338508302088485e-8
+      ],
+      "scale": [
+        0.10452922433614731,
+        0.10452922433614731,
+        0.10452922433614731
+      ],
+      "translation": [
+        0.39112237095832825,
+        0.10426077991724014,
+        0.27398979663848877
+      ]
+    },
+    {
+      "children": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "name": "* car_wheels",
+      "scale": [
+        0.6700000166893005,
+        0.6700000166893005,
+        0.6700000166893005
+      ]
+    },
+    {
+      "children": [
+        1,
+        6
+      ],
+      "name": "CAR"
+    },
+    {
+      "mesh": 2,
+      "name": "STRUCTURE",
+      "rotation": [
+        0,
+        0.06307350844144821,
+        0,
+        0.9980089068412781
+      ],
+      "translation": [
+        227.1728515625,
+        12.331332206726074,
+        -27.928869247436523
+      ]
+    },
+    {
+      "mesh": 3,
+      "name": "ROAD"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Plane.009",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 0,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          },
+          "indices": 3,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Cylinder.004",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 4,
+            "NORMAL": 5,
+            "TEXCOORD_0": 6
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 1,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          },
+          "indices": 7,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Cube.003",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 8,
+            "NORMAL": 9,
+            "TEXCOORD_0": 10,
+            "TEXCOORD_1": 11
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 2,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2,
+                "TEXCOORD_1": 3
+              }
+            }
+          },
+          "indices": 12,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Plane.004",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 13,
+            "NORMAL": 14,
+            "TEXCOORD_0": 15
+          },
+          "extensions": {
+            "KHR_draco_mesh_compression": {
+              "bufferView": 3,
+              "attributes": {
+                "POSITION": 0,
+                "NORMAL": 1,
+                "TEXCOORD_0": 2
+              }
+            }
+          },
+          "indices": 16,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "accessors": [
+    {
+      "componentType": 5126,
+      "count": 11762,
+      "max": [
+        3.7771377563476562,
+        1.441684365272522,
+        1.542514681816101
+      ],
+      "min": [
+        -4.317492961883545,
+        0.09052073955535889,
+        -1.6188656091690063
+      ],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 11762,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 11762,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 18192,
+      "type": "SCALAR"
+    },
+    {
+      "componentType": 5126,
+      "count": 2835,
+      "max": [
+        0.9846580624580383,
+        0.5373115539550781,
+        0.9775123596191406
+      ],
+      "min": [
+        -0.9844449162483215,
+        -0.2737172544002533,
+        -0.9877054691314697
+      ],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 2835,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 2835,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5123,
+      "count": 4629,
+      "type": "SCALAR"
+    },
+    {
+      "componentType": 5126,
+      "count": 89613,
+      "max": [
+        243.53945922851562,
+        120.98751068115234,
+        87.91739654541016
+      ],
+      "min": [
+        -204.84461975097656,
+        -171.63925170898438,
+        -71.4985122680664
+      ],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 89613,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 89613,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5126,
+      "count": 89613,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5125,
+      "count": 210873,
+      "type": "SCALAR"
+    },
+    {
+      "componentType": 5126,
+      "count": 127744,
+      "max": [
+        417.107666015625,
+        24.063812255859375,
+        55.40686798095703
+      ],
+      "min": [
+        -0.5597472190856934,
+        -6.582123756408691,
+        -100.62049102783203
+      ],
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 127744,
+      "type": "VEC3"
+    },
+    {
+      "componentType": 5126,
+      "count": 127744,
+      "type": "VEC2"
+    },
+    {
+      "componentType": 5125,
+      "count": 335328,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 91108,
+      "byteOffset": 0
+    },
+    {
+      "buffer": 0,
+      "byteLength": 23764,
+      "byteOffset": 91108
+    },
+    {
+      "buffer": 0,
+      "byteLength": 306076,
+      "byteOffset": 114872
+    },
+    {
+      "buffer": 0,
+      "byteLength": 621096,
+      "byteOffset": 420948
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "scene_data.bin",
+      "byteLength": 1042044
+    }
+  ]
+}
