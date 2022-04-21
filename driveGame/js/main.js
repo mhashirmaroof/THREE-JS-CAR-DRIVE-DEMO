@@ -132,14 +132,15 @@ class CarModel {
                 animateAction.paused = true;
                 player.push(animateAction);
                 scene.add(carModel);
-                var driveSound = new Audio('driveGame/audios/brake.mp3')
-                playSound(driveSound, 1)
+                var driveSound = new Audio('driveGame/audios/handbrake.mp3')
+                playSound(driveSound, 0)
 
             }
         })
     }
     reverse(carModel) {
         window.addEventListener("keydown", (event) => {
+            if(speed != 0){
             if (event.key == "s") {
                 if (!modelaction) {
                     modelaction = true;
@@ -176,9 +177,11 @@ class CarModel {
                     scene.add(carModel);
                 }
             }
+        }
         })
 
         window.addEventListener("keyup", (event) => {
+            if(speed != 0){
             if (event.key == "s") {
                 modelaction = false;
                 mixer = new THREE.AnimationMixer(carModel);
@@ -187,12 +190,17 @@ class CarModel {
                 player.push(animateAction);
                 scene.add(carModel);
             }
+        }
         })
     }
     turnLeft(carModel) {
+
+        speed = 0;
         window.addEventListener("keydown", (event) => {
+            if(speed != 0){
             if (event.key == "a") {
                 if (!modelaction) {
+                    speed = 1.0;
                     modelaction = true;
                     mixer = new THREE.AnimationMixer(carModel);
                     const animateAction1 = mixer.clipAction(carModel.animations[1]).play();
@@ -203,9 +211,11 @@ class CarModel {
                     scene.add(carModel);
                 }
             }
+        }
         })
 
         window.addEventListener("keyup", (event) => {
+            if(speed != 0){
             if (event.key == "a") {
                 modelaction = false;
                 mixer = new THREE.AnimationMixer(carModel);
@@ -216,10 +226,12 @@ class CarModel {
                 player.push(animateAction1, animateAction2, animateAction3, animateAction4);
                 scene.add(carModel);
             }
+        }
         })
     }
     turnRight(carModel) {
         window.addEventListener("keydown", (event) => {
+            if(speed != 0){
             if (event.key == "d") {
                 if (!modelaction) {
                     modelaction = true;
@@ -232,9 +244,11 @@ class CarModel {
                     scene.add(carModel);
                 }
             }
+        }
         })
 
         window.addEventListener("keyup", (event) => {
+            if(speed != 0){
             if (event.key == "d") {
                 modelaction = false;
                 mixer = new THREE.AnimationMixer(carModel);
@@ -245,10 +259,12 @@ class CarModel {
                 player.push(animateAction1, animateAction2, animateAction3, animateAction4);
                 scene.add(carModel);
             }
+        }
         })
     }
     handBrake(carModel) {
         window.addEventListener("keydown", (event) => {
+            if(speed != 0){
             if (event.key == " ") {
                 if (!modelaction) {
                     modelaction = true;
@@ -257,12 +273,13 @@ class CarModel {
                     const animateAction2 = mixer.clipAction(carModel.animations[10]).play();
                     player.push(animateAction1, animateAction2);
                     scene.add(carModel);
-                    console.log("space working")
                 }
             }
+        }
         })
 
         window.addEventListener("keyup", (event) => {
+            if(speed != 0){
             if (event.key == " ") {
                 modelaction = false;
                 mixer = new THREE.AnimationMixer(carModel);
@@ -272,8 +289,8 @@ class CarModel {
                 const animateAction4 = mixer.clipAction(carModel.animations[10]).play();
                 player.push(animateAction1, animateAction2, animateAction3, animateAction4);
                 scene.add(carModel);
-                console.log("space working up")
             }
+        }
         })
     }
 }
@@ -290,9 +307,9 @@ setTimeout(() => {
 camera.position.set(0, 0, 5);
 playerCamera.add(camera)
 playerCamera.position.set(0.2, 5, 3)
-gui.add(playerCamera.position,'x', -20,20)
-gui.add(playerCamera.position,'y', -20,20)
-gui.add(playerCamera.position,'z', -20,20)
+gui.add(playerCamera.position, 'x', -20, 20)
+gui.add(playerCamera.position, 'y', -20, 20)
+gui.add(playerCamera.position, 'z', -20, 20)
 goal.add(playerCamera);
 scene.add(goal);
 
@@ -319,7 +336,7 @@ function update() {
         velocity += (speed - velocity) * 0.3;
         carModel.translateZ(velocity);
         var driveSound = new Audio('driveGame/audios/engine.mp3')
-        playSound(driveSound, 0)
+        playSound(driveSound, 1)
     };
 
     if (keys["s"]) {
@@ -327,7 +344,7 @@ function update() {
         velocity += (speed - velocity) * 0.3;
         carModel.translateZ(velocity);
         var driveSound = new Audio('driveGame/audios/engine.mp3')
-        playSound(driveSound, 0)
+        playSound(driveSound, 1.1)
     };
 
     if (keys["d"]) {
@@ -340,6 +357,15 @@ function update() {
             }
         }
     };
+    if (keys[" "]) {
+        if (speed != 0) {
+            speed = -0.4
+            velocity += (speed - velocity) * 0.3;
+            carModel.translateZ(velocity);
+            var driveSound = new Audio('driveGame/audios/handbrake.mp3')
+            playSound(driveSound, 0)
+        }
+    }
 
     if (keys["a"]) {
         if (speed != 0) {
