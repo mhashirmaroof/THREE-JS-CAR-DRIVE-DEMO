@@ -332,16 +332,16 @@ function update() {
         if (keys["b"]) {
             speed = 1.0 * 2.5
             var driveSound = new Audio('driveGame/audios/engine.mp3')
-            playSound(driveSound, 0.4)
+            playSound(driveSound, 0.6)
         }
         else {
             speed = 1.0
             var driveSound = new Audio('driveGame/audios/engine.mp3')
-            playSound(driveSound, 1)
+            playSound(driveSound, 1.1)
         }
+
         velocity += (speed - velocity) * 0.3;
         carModel.translateZ(velocity);
-
     };
 
     if (keys["s"]) {
@@ -383,7 +383,7 @@ function update() {
     }
 
     setTimeout(() => {
-        goal.position.lerp(angel, 0.04);
+        goal.position.lerp(angel, 0.06);
         angel.setFromMatrixPosition(follow.matrixWorld);
         camera.lookAt(carModel.position);
     }, 120);
