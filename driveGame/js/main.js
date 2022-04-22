@@ -304,7 +304,7 @@ setTimeout(() => {
     car.turnLeft(carModel)
     car.turnRight(carModel)
     car.handBrake(carModel)
-}, 130);
+}, 145);
 
 camera.position.set(0, 0, 5);
 playerCamera.add(camera)
@@ -339,7 +339,6 @@ function update() {
             var driveSound = new Audio('driveGame/audios/engine.mp3')
             playSound(driveSound, 1.1)
         }
-
         velocity += (speed - velocity) * 0.3;
         carModel.translateZ(velocity);
     };
@@ -386,7 +385,7 @@ function update() {
         goal.position.lerp(angel, 0.06);
         angel.setFromMatrixPosition(follow.matrixWorld);
         camera.lookAt(carModel.position);
-    }, 120);
+    }, 150);
 
     mixer.update(clock.getDelta());
 };
