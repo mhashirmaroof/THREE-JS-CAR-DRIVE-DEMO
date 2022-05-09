@@ -23,7 +23,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const loader = new THREE.GLTFLoader();
+const loader = new THREE.FBXLoader();
 var goal, follow;
 var angel = new THREE.Vector3;
 var dir = new THREE.Vector3;
@@ -52,18 +52,46 @@ scene.add(light2);
 var cityModel;
 class City {
     constructor() {
-        loader.load("driveGame/models/track.glb", (gltf) => {
-            scene.add(gltf.scene);
-            gltf.scene.scale.set(10, 10, 10);
-            gltf.scene.rotation.set(0, -1.56, 0);
-            gltf.scene.position.set(-200, -16, -100);
-            cityModel = gltf.scene;
+        loader.load("driveGame/models/town.fbx", (gltf) => {
+            scene.add(gltf);
+            gltf.scale.set(0.10, 0.10, 0.10);
+            gltf.rotation.set(0, -1.56, 0);
+            gltf.position.set(-140, -7, -200);
+            gui.add(gltf.position, 'x', -200, 200)
+            gui.add(gltf.position, 'y', -200, 200)
+            gui.add(gltf.position, 'z', -200, 200)
+            cityModel = gltf;
         });
     }
 }
 var gallery = new City();
 
-let keys = {};
+var colliders = [];
+
+function createColliders(){
+    const geometry = new THREE.BoxGeometry(500, 400, 500);
+    const material = new THREE.MeshBasicMaterial({ color: "0x222222", wireframe: true });
+
+    for (var x = -5000; x < 5000; x += 1000) {
+        for (var z = -5000; z < 5000; z += 1000) {
+            if (x == 0 && z == 0) continue;
+            const box = new THREE.Mesh(geometry, material);
+            box.position.set(x, 250, z);
+            scene.add(box);
+            colliders.push(box);
+        }
+    }
+
+    const geometry2 = new THREE.BoxGeometry(1000, 40, 1000);
+    const stage = new THREE.Mesh(geometry2, material);
+    stage.position.set(0, 20, 0);
+    colliders.push(stage);
+    scene.add(stage);
+}
+
+createColliders();
+
+var keys = {};
 function keyDown(event) {
     keys[event.key] = true;
 };
@@ -75,9 +103,9 @@ document.onkeydown = keyDown;
 document.onkeyup = keyUp;
 
 const fbxloader = new THREE.FBXLoader();
-let player = [];
-let mixer = new THREE.AnimationMixer();
-let clock = new THREE.Clock();
+var player = [];
+var mixer = new THREE.AnimationMixer();
+var clock = new THREE.Clock();
 var playerCamera = new THREE.Object3D();
 var carModel;
 var carModels = {};
@@ -309,16 +337,13 @@ setTimeout(() => {
 camera.position.set(0, 0, 5);
 playerCamera.add(camera)
 playerCamera.position.set(0.2, 5, 3)
-gui.add(playerCamera.position, 'x', -20, 20)
-gui.add(playerCamera.position, 'y', -20, 20)
-gui.add(playerCamera.position, 'z', -20, 20)
 goal.add(playerCamera);
 scene.add(goal);
 
 function updatePosition(event) {
     camera.rotation.order = 'YZX'
-    let { movementX, movementY } = event
-    let rotateSpeed = 0.002
+    var { movementX, movementY } = event
+    var rotateSpeed = 0.002
     playerCamera.rotation.y -= movementX * rotateSpeed
     camera.rotation.x -= movementY * rotateSpeed
     camera.rotation.x = Math.max(-Math.PI / 2, Math.min(camera.rotation.x, Math.PI / 2))
@@ -335,7 +360,7 @@ function update() {
             playSound(driveSound, 0.6)
         }
         else {
-            speed = 1.0
+            speed = 1.1
             var driveSound = new Audio('driveGame/audios/engine.mp3')
             playSound(driveSound, 1.1)
         }
@@ -388,6 +413,7 @@ function update() {
     }, 150);
 
     mixer.update(clock.getDelta());
+    
 };
 function animate() {
     requestAnimationFrame(animate);
